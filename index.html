@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - XATSTORE</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            padding: 30px 15px;
+            line-height: 1.6;
+        }
+
+        .invoice-container {
+            background: white;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .invoice-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .info-block h3 {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-block p {
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 18px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total-section {
+            text-align: right;
+            margin-top: 40px;
+        }
+
+        .total-label {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .grand-total {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e3a8a;
+            background: #eff6ff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .payment-info {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .payment-info h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .print-btn {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 14px 40px;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .invoice-container {
+                padding: 40px 25px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .grand-total {
+                font-size: 28px;
+                padding: 15px 25px;
+            }
+        }
+
+        /* Print style */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .invoice-container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 40px;
+                max-width: 100%;
+            }
+            button, .print-btn {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+
+    <div class="header">
+        <div class="logo">XATSTORE</div>
+        <div class="invoice-title">INVOICE</div>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-block">
+            <h3>Nomor Invoice</h3>
+            <p>INV-003/XX/2025</p>
+            
+            <h3>Tanggal</h3>
+            <p>10 Desember 2025</p>
+            
+        </div>
+
+        <div class="info-block">
+            <h3>Dari</h3>
+            <p><strong>NIFAL</strong><br>
+               Developer / Freelancer Web</p>
+
+            <h3>Kepada</h3>
+            <p><strong>XATSTORE</strong><br></p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Deskripsi Pekerjaan</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Harga</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Perancangan Konsep & Struktur Website</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 350.000</td>
+                <td class="text-right">Rp 350.000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Desain UI/UX Modern & Responsive</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 450.000</td>
+                <td class="text-right">Rp 450.000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pembuatan Website Lengkap (maks. 6-8 halaman)</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 500.000</td>
+                <td class="text-right">Rp 500.000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Integrasi Form Kontak & WhatsApp</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 200.000</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Basic + On-Page SEO</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 250.000</td>
+                <td class="text-right">Rp 250.000</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Setup Hosting Premium & Domain .id (1 Tahun)</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 1.250.000</td>
+                <td class="text-right">Rp 1.250.000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="total-section">
+        <div class="total-label">Total Pembayaran</div>
+        <div class="grand-total">Rp 3.000.000</div>
+    </div>
+
+    <div class="payment-info">
+        <h3>Informasi Pembayaran</h3>
+        <p><strong>Bank:</strong> BCA</p>
+        <p><strong>No. Rekening:</strong> 3650217127</p>
+        <p><strong>Atas Nama:</strong> NIFAL</p>
+        <p style="margin-top: 15px; color: #64748b;">Silakan transfer sebelum jatuh tempo. Kirimkan bukti transfer untuk proses verifikasi.</p>
+    </div>
+
+    <div class="print-btn">
+        <button onclick="window.print()">Download / Print Invoice (PDF)</button>
+    </div>
+
+</div>
+
+</body>
+</html>
